@@ -14,8 +14,8 @@ export SANDBOX_HOME=~/Code/Repos/dvs-sandbox
 export COMPOSER_HOME=~/Code/Repos/dp-composer
 
 # AWS Credentials and Utils
-export AWS_ACCESS_KEY_ID=AKIAIGKVJXF7LZF542MQ
-export AWS_SECRET_ACCESS_KEY=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
+export AWS_ACCESS_KEY_ID=****
+export AWS_SECRET_ACCESS_KEY=****
 alias get-token="source ~/Code/Scripts/get-token.sh"
 
 # Set name of the theme to load --- if set to "random", it will
