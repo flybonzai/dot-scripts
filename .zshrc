@@ -86,6 +86,8 @@ SPACESHIP_USER_SHOW="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  brew
+  docker-compose
   git
   zsh-syntax-highlighting
 )
