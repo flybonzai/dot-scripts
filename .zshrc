@@ -11,12 +11,9 @@ source /etc/zprofile
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export SANDBOX_HOME=~/Code/Repos/dvs-sandbox
-export COMPOSER_HOME=~/Code/Repos/dp-composer
 
-# AWS Credentials and Utils
-export AWS_ACCESS_KEY_ID=****
-export AWS_SECRET_ACCESS_KEY=****
-alias get-token="source ~/Code/Scripts/get-token.sh"
+# Credentials
+source $HOME/.zshcreds
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,15 +83,13 @@ SPACESHIP_USER_SHOW="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  brew
-  docker-compose
   git
+  docker-compose
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
+source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -112,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -123,25 +118,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias ls=’colorls — light — sort-dirs — report’
-alias ll='colorls -l -t --sd'
+alias ll='colorls -1 -t --sd'
+alias lh='colorls -l -t --sd'
 alias la='colorls -lA --sd'
 alias lc='colorls -lA --sd --tree'
 alias kafka_home="cd /usr/local/Cellar/kafka/1.0.0/bin"
-alias dc=docker-compose
-alias ddir='cd $COMPOSER_HOME'
-alias dfresh='$COMPOSER_HOME/scripts/refresh.sh'
-alias dstart='cd $COMPOSER_HOME && docker-compose up -d && cd - > /dev/null'
-alias dstop='cd $COMPOSER_HOME && docker-compose stop && cd - > /dev/null'
+alias ddir='cd $SANDBOX_HOME'
+alias dstart='cd $SANDBOX_HOME && docker-compose up -d && cd - > /dev/null'
+alias dstop='cd $SANDBOX_HOME && docker-compose stop && cd - > /dev/null'
 alias dps='cd $SANDBOX_HOME && docker-compose ps && cd - > /dev/null'
-alias sdir='cd $SANDBOX_HOME'
-alias sfresh='cd $SANDBOX_HOME; docker-compose down; docker-compose up -d'
-alias sstart='cd $SANDBOX_HOME && docker-compose up -d && cd - > /dev/null'
-alias sstop='cd $SANDBOX_HOME && docker-compose stop && cd - > /dev/null'
-alias sps='cd $SANDBOX_HOME && docker-compose ps && cd - > /dev/null'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias dnuke='bash ~/Code/Scripts/nukeit.sh'
+alias dfresh='cd $SANDBOX_HOME; docker-compose down; docker-compose up -d'
 alias pg-dev='psql -h docker -U postgres'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias repos='cd ~/Code/Repos'
 alias chrome='open -a "Google Chrome"'
 alias adhoc='ssh mckay@hydra-adhoc-production.vnerd.com'
 alias zsource='source ~/.zshrc'
+alias get-token="source ~/Code/Scripts/get-token.sh"
+
+# Utility functions
+cht() {
+  alias | grep $1
+}
