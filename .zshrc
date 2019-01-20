@@ -137,6 +137,9 @@ alias zsource='source ~/.zshrc'
 alias get-token="source ~/Code/Scripts/get-token.sh"
 
 # Utility functions
+
+# Easily see which aliases are available for a given keyword.
+# Usage: cht docker
 cht() {
   alias | grep $1
 }
