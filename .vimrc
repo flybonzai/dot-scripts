@@ -1,4 +1,4 @@
-" McKay Harris VIMRC
+" Vim configuration for McKay Harris
 
 " Colors {{{
 colorscheme molokai
@@ -23,14 +23,15 @@ set hlsearch " highlights matches
 set foldenable " enable folding
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested folds max
-set foldmethod=indent " fold based on indent level
+set foldmethod=marker " fold based on markers 
 nnoremap <space> za
 " }}}
 
 " Keybindings {{{
 nnoremap B ^
 nnoremap E $
-
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
 nnoremap <leader>u :GundoToggle<CR>
 :imap jk <Esc>
 " }}}
