@@ -1,19 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/Users/mckay-harris/apache-maven-3.5.2/bin:/Users/mckay-harris/anaconda3/bin:$PATH"
 export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/Users/mckay-harris/.local/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/mckay-harris/.oh-my-zsh"
+export ZSH=<ADD .zshrc PATH>
 source $(dirname $(gem which colorls))/tab_complete.sh
 source /etc/zprofile
 
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export SANDBOX_HOME=~/Code/Repos/dvs-sandbox
-
-# Credentials
-source $HOME/.zshcreds
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -83,8 +77,9 @@ SPACESHIP_USER_SHOW="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   docker-compose
+  git
+  tmux
   zsh-syntax-highlighting
 )
 
@@ -118,22 +113,14 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias ls=’colorls — light — sort-dirs — report’
+alias aws='aws-vault exec default -- aws'
 alias ll='colorls -1 -t --sd'
 alias lh='colorls -l -t --sd'
 alias la='colorls -lA --sd'
 alias lc='colorls -lA --sd --tree'
-alias kafka_home="cd /usr/local/Cellar/kafka/1.0.0/bin"
-alias ddir='cd $SANDBOX_HOME'
-alias dstart='cd $SANDBOX_HOME && docker-compose up -d && cd - > /dev/null'
-alias dstop='cd $SANDBOX_HOME && docker-compose stop && cd - > /dev/null'
-alias dps='cd $SANDBOX_HOME && docker-compose ps && cd - > /dev/null'
-alias dfresh='cd $SANDBOX_HOME; docker-compose down; docker-compose up -d'
 alias pg-dev='psql -h docker -U postgres'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias repos='cd ~/Code/Repos'
 alias chrome='open -a "Google Chrome"'
-alias adhoc='ssh mckay@hydra-adhoc-production.vnerd.com'
-alias zsource='source ~/.zshrc'
+alias zsrc='source ~/.zshrc'
 alias get-token="source ~/Code/Scripts/get-token.sh"
 
 # Utility functions
@@ -143,3 +130,4 @@ alias get-token="source ~/Code/Scripts/get-token.sh"
 cht() {
   alias | grep $1
 }
+
