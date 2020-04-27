@@ -1,4 +1,5 @@
 " Vim configuration for McKay Harris
+" za to open fold, zc to close
 
 " Colors {{{
 colorscheme molokai
@@ -43,6 +44,12 @@ set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when necessary
 set showmatch " highlight matching [({})]
+" }}}
+
+" Plugins {{{
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufWinEnter * NERDTreeMirror
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
