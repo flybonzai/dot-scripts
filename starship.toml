@@ -1,0 +1,38 @@
+format = "[$directory$git_branch$kubernetes$docker_context$java$python$cmd_duration\n$character](bold white)"
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = '[\[I\] ](bold white)'
+error_symbol = '[\[I\] ](bold red)'
+vicmd_symbol = '[\[V\] ](bold white)'
+disabled = false
+# success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+[directory]
+format = "in [$path]($style)[$read_only]($read_only_style) "
+truncation_length = 8
+truncation_symbol = "…/"
+
+[docker_context]
+format = "via [  $context](blue bold) "
+disabled = false
+
+[git_branch]
+symbol = " "
+
+[java]
+style = "red"
+
+[kubernetes]
+symbol = "☸ "
+format = "on $symbol [$context](207) "
+disabled = false
+
+[python]
+symbol = " "
+
+[username]
+disabled = false
