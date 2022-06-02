@@ -1,0 +1,4 @@
+imap jk <Esc>
+set timeoutlen=1000
+nnoremap B ^
+nnoremap E $
