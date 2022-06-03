@@ -27,7 +27,7 @@ symbol = " "
 style = "red"
 
 [kubernetes]
-symbol = "☸ "
+symbol = "☸️ "
 format = "on $symbol [$context](207) "
 disabled = false
 
